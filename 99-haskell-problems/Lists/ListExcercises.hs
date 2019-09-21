@@ -33,6 +33,12 @@ pack :: (Eq a) => [a] -> [[a]]
 pack [] = []
 pack (x:xs) = (x : takeWhile (==x) xs) : pack (dropWhile (==x) xs)
 
+--encode :: Eq a => [a] -> [(Int, a)]
+--encode = map ((,) <$> length <*> head) . pack
+
+encode xs = map (\x -> (length x,head x)) (pack xs)
+
+
 
 
 myButLastRopa [] = error "Empty list"
@@ -75,6 +81,8 @@ main = do
    print (compress uncompressedString)
 
    print (show(pack(uncompressedString)))
+
+   print (show(encode(uncompressedString)))
 
 
 
