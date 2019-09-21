@@ -6,6 +6,11 @@ myLast (_:xs) = myLast xs
 myButLast :: [a] -> a
 myButLast = last . init
 
+elementAt :: [a] -> Int -> a
+elementAt list i    = list !! (i-1)
+
+
+
 myButLastRopa [] = error "Empty list"
 myButLastRopa [x] = error "Too few elements"
 myButLastRopa (x:xs) =
@@ -14,13 +19,19 @@ myButLastRopa (x:xs) =
 
 main = do
    let intList = [1,2,3,4]
-   print (myLast intList)
-   let stringList = ["Hola", "Mundo", "!"]
+   let stringList = ["Hello", "World", "!"]
+   let string = "Hello World!"
+
+
    print (myLast stringList)
+   print (myLast intList)
 
    print (myButLast intList)
    print (myButLast stringList)
 
    print (myButLastRopa intList)
    print (myButLastRopa stringList)
+
+   print (elementAt intList 1)
+   print (elementAt stringList 1)
 
