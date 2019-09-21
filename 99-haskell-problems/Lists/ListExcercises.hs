@@ -57,7 +57,21 @@ duplicate :: (Eq a) => [a] -> [a]
 duplicate [] = []
 duplicate (x:xs) = x:x:duplicate xs
 
+replicateN :: [a] -> Int -> [a]
+replicateN xs n = concatMap (replicate n) xs
 
+dropEvery :: [a] -> Int -> [a]
+dropEvery list count = helper list count count
+  where helper [] _ _ = []
+        helper (x:xs) count 1 = helper xs count count
+        helper (x:xs) count n = x : (helper xs count (n - 1))
+
+insertAt :: a -> [a] -> Int -> [a]
+insertAt x ys     1 = x:ys
+insertAt x (y:ys) n = y:insertAt x ys (n-1)
+
+range :: Int -> Int -> [Int]
+range x y = [x..y]
 
 
 myButLastRopa [] = error "Empty list"
@@ -110,6 +124,15 @@ main = do
    print(decodeModified encodeResult)
 
    print(duplicate intList)
+
+   print(replicateN intList 4)
+
+   print(show(dropEvery uncompressedString 2))
+
+   print(show(insertAt 'A' uncompressedString 3))
+
+   print (range 4 9)
+
 
 
 
