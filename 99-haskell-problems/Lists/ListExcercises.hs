@@ -29,6 +29,10 @@ compress (x:ys@(y:_))               -- the @ tells me that ys must have at least
     | otherwise = x : compress ys
 compress ys = ys
 
+pack :: (Eq a) => [a] -> [[a]]
+pack [] = []
+pack (x:xs) = (x : takeWhile (==x) xs) : pack (dropWhile (==x) xs)
+
 
 
 myButLastRopa [] = error "Empty list"
@@ -69,6 +73,8 @@ main = do
    let uncompressedString = "aaaaaaaabbbaaabbbbbbbsssssgjjjjj"
 
    print (compress uncompressedString)
+
+   print (show(pack(uncompressedString)))
 
 
 
