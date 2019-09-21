@@ -3,6 +3,7 @@
 This is a set of exercises and their implementations in Haskell for the course "Programming Languages" at Universidad Austral.
 
 ##How to Use
+
 First of all remember to have GHC installed in your system. If you don't, please download it from [here](https://www.haskell.org/platform/).
 
 After that you must link and compile files in order to compile them, just as you would in C.
