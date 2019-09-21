@@ -9,6 +9,11 @@ myButLast = last . init
 elementAt :: [a] -> Int -> a
 elementAt list i    = list !! (i-1)
 
+myLength :: [a] -> Int
+myLength [] = 0
+myLength [x] = 1
+myLength (x:xs) = length xs + 1
+
 
 
 myButLastRopa [] = error "Empty list"
@@ -34,4 +39,7 @@ main = do
 
    print (elementAt intList 1)
    print (elementAt stringList 1)
+
+   print (myLength intList)
+   print (myLength stringList)
 
