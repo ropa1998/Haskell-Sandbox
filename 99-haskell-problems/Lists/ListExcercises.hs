@@ -18,6 +18,10 @@ myReverse :: [a] -> [a]
 myReverse [] = []
 myReverse (x:xs) = reverse xs ++ [x]
 
+palindrome :: (Eq a) => [a] -> Bool
+palindrome [] = False
+palindrome [x] = False
+palindrome xs = xs == reverse xs
 
 
 
@@ -31,7 +35,6 @@ main = do
    let intList = [1,2,3,4]
    let stringList = ["Hello", "World", "!"]
    let string = "Hello World!"
-
 
    print (myLast stringList)
    print (myLast intList)
@@ -50,4 +53,12 @@ main = do
 
    print(show(myReverse intList))
    print(show(myReverse stringList))
+
+   let palindromeString = "xamax"
+   let nonPalindromeString  = "hello"
+
+   print (palindrome palindromeString)
+   print (palindrome nonPalindromeString)
+
+
 
