@@ -16,3 +16,8 @@ After that you would just need to run the hello exe, which depending on your sys
 If you want a more detailed version of these instructions, please go [here](https://wiki.haskell.org/Haskell_in_5_steps#Install_Haskell).
 
 I hope you find it useful!
+
+##Useful Links
+
+[List](https://wiki.haskell.org/How_to_work_on_lists)
+
