@@ -38,6 +38,21 @@ pack (x:xs) = (x : takeWhile (==x) xs) : pack (dropWhile (==x) xs)
 
 encode xs = map (\x -> (length x,head x)) (pack xs)
 
+data ListItem a = Single a | Multiple Int a
+    deriving (Show)
+
+encodeModified :: Eq a => [a] -> [ListItem a]
+encodeModified = map encodeHelper . encode
+    where
+      encodeHelper (1,x) = Single x
+      encodeHelper (n,x) = Multiple n x
+
+decodeModified :: [ListItem a] -> [a]
+decodeModified = concatMap decodeHelper
+    where
+      decodeHelper (Single x)     = [x]
+      decodeHelper (Multiple n x) = replicate n x
+
 
 
 
@@ -83,6 +98,12 @@ main = do
    print (show(pack(uncompressedString)))
 
    print (show(encode(uncompressedString)))
+
+   let encodeResult = encodeModified uncompressedString
+
+   print(encodeResult)
+
+   print(decodeModified encodeResult)
 
 
 
