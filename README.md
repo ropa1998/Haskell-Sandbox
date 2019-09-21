@@ -2,8 +2,9 @@
 
 This is a set of exercises and their implementations in Haskell for the course "Programming Languages" at Universidad Austral.
 
-## How to Use
+You can find all the exercises [here](https://wiki.haskell.org/H-99:_Ninety-Nine_Haskell_Problems)
 
+##How to Use
 First of all remember to have GHC installed in your system. If you don't, please download it from [here](https://www.haskell.org/platform/).
 
 After that you must link and compile files in order to make an executable, just as you would in C.
