@@ -53,6 +53,10 @@ decodeModified = concatMap decodeHelper
       decodeHelper (Single x)     = [x]
       decodeHelper (Multiple n x) = replicate n x
 
+duplicate :: (Eq a) => [a] -> [a]
+duplicate [] = []
+duplicate (x:xs) = x:x:duplicate xs
+
 
 
 
@@ -104,6 +108,8 @@ main = do
    print(encodeResult)
 
    print(decodeModified encodeResult)
+
+   print(duplicate intList)
 
 
 
