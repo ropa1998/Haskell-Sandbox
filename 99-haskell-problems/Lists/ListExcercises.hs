@@ -23,6 +23,12 @@ palindrome [] = False
 palindrome [x] = False
 palindrome xs = xs == reverse xs
 
+compress :: (Eq a) => [a] -> [a]
+compress (x:ys@(y:_))               -- the @ tells me that ys must have at least one element and anything in the tail
+    | x == y    = compress ys
+    | otherwise = x : compress ys
+compress ys = ys
+
 
 
 myButLastRopa [] = error "Empty list"
@@ -59,6 +65,10 @@ main = do
 
    print (palindrome palindromeString)
    print (palindrome nonPalindromeString)
+
+   let uncompressedString = "aaaaaaaabbbaaabbbbbbbsssssgjjjjj"
+
+   print (compress uncompressedString)
 
 
 
