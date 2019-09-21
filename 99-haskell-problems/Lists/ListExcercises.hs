@@ -14,6 +14,11 @@ myLength [] = 0
 myLength [x] = 1
 myLength (x:xs) = length xs + 1
 
+myReverse :: [a] -> [a]
+myReverse [] = []
+myReverse (x:xs) = reverse xs ++ [x]
+
+
 
 
 myButLastRopa [] = error "Empty list"
@@ -42,4 +47,7 @@ main = do
 
    print (myLength intList)
    print (myLength stringList)
+
+   print(show(myReverse intList))
+   print(show(myReverse stringList))
 
